@@ -2,11 +2,13 @@
     <div>
         <p v-if='esta_trabalhando'>Estou trabalhando no momento.</p>
         <p v-else>Não estou trabalhando.</p>
-        <p>Utilizo as seguintes tecnologias:</p>
+        <p>Utilizo as seguintes tecnologias para o back-end:</p>
         <ul>
-            <li>PHP</li>
-            <li>JavaScript</li>
-            <li>Vue</li>
+            <li v-for="(tec, index) in backend_tec" :key="index">{{ tec }}</li>
+        </ul>
+        <p>Utilizo as seguintes tecnologias para o front-end</p>
+        <ul>
+            <li v-for="tec in frontend_tec" :key="tec.id">{{ tec.language }}</li>
         </ul>
         <div>
             <button @click="showEmail">{{ textoBotao }}</button>
@@ -31,7 +33,13 @@ export default {
             mostrar_email: false,
             email: 'leealalves@hotmail.com',
             meu_link: 'https://google.com',
-            textoBotao: 'Mostrar E-mail'
+            textoBotao: 'Mostrar E-mail',
+            backend_tec: ['Javascript','PHP','Vue'],
+            frontend_tec:[
+                {id: 1, language: 'HTML'},
+                {id: 2, language: 'CSS'},
+                {id: 3, language: 'Vue'}
+            ]
         }
     },
     methods: {
