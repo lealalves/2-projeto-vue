@@ -1,5 +1,6 @@
 <template>
     <div>
+        <p>{{email}} - {{email}}</p>
         <p v-if='esta_trabalhando'>Estou trabalhando no momento.</p>
         <p v-else>Não estou trabalhando.</p>
         <p>Utilizo as seguintes tecnologias para o back-end:</p>
@@ -27,11 +28,13 @@ export default {
     components: {
         Picture
     },
+    props: {
+        email: String,
+        esta_trabalhando: Boolean
+    },
     data() {
         return {
-            esta_trabalhando: false,
             mostrar_email: false,
-            email: 'leealalves@hotmail.com',
             meu_link: 'https://google.com',
             textoBotao: 'Mostrar E-mail',
             backend_tec: ['Javascript','PHP','Vue'],
