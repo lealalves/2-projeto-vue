@@ -8,6 +8,9 @@
             <li>JavaScript</li>
             <li>Vue</li>
         </ul>
+        <div>
+            <button @click="showEmail">{{ textoBotao }}</button>
+        </div>
         <p v-show="mostrar_email">Mande uma mensagem para: {{email}}</p>
         <p>Para acessar meu portifólio <a v-bind:href="meu_link">basta clicar aqui</a></p>
         <Picture/>
@@ -27,7 +30,18 @@ export default {
             esta_trabalhando: false,
             mostrar_email: false,
             email: 'leealalves@hotmail.com',
-            meu_link: 'https://google.com'
+            meu_link: 'https://google.com',
+            textoBotao: 'Mostrar E-mail'
+        }
+    },
+    methods: {
+        showEmail () {
+            this.mostrar_email = !this.mostrar_email
+            if(!this.mostrar_email){
+                this.textoBotao = 'Mostrar E-mail'
+            }else{
+                this.textoBotao = 'Ocultar E-mail'
+            }
         }
     }
 }
